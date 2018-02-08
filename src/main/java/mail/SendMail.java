@@ -1,4 +1,4 @@
-package readMail;
+package mail;
 
 import java.util.Properties;
 
