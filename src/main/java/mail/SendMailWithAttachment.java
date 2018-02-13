@@ -1,20 +1,25 @@
 package mail;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Properties;
 
 import javax.mail.Authenticator;
 import javax.mail.Message;
 import javax.mail.MessagingException;
+import javax.mail.Multipart;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 
-public class SendMail {
+public class SendMailWithAttachment {
 
-	public static void main(String[] args) throws AddressException, MessagingException {
+	public static void main(String[] args) throws AddressException, MessagingException, IOException {
 
 		Properties props = new Properties();
 		props.put("mail.smtp.host", "smtp.gmail.com");    
@@ -36,8 +41,18 @@ public class SendMail {
 		Date d = Date.from(instant );
 		msg.setSentDate(d );*/
 		msg.setText("Another test mail");
-		System.out.println("mail sent");
+		
+		MimeBodyPart body = new MimeBodyPart();
+		String file = "E:\\Koushik\\Documents\\M2.pdf";
+		/*File file = new File("E:\\Koushik\\Documents\\M2.pdf");
+		System.out.println(file);
+		body.attachFile(file);*/
+		body.attachFile(file);
+		Multipart mp = new MimeMultipart();
+		mp.addBodyPart(body);
+	
 		Transport.send(msg);
+		System.out.println("mail sent");
 
 
 	}
