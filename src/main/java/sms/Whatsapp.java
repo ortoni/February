@@ -1,11 +1,14 @@
 package sms;
 
+import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.LocalFileDetector;
+import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
@@ -20,6 +23,7 @@ public class Whatsapp {
 		driver.manage().window().maximize();
 		driver.get("https://web.whatsapp.com/");
 		WebDriverWait wait = new WebDriverWait(driver, 30);
+		LocalFileDetector detect = new LocalFileDetector();
 		WebElement logo = driver.findElementByXPath("//span[@data-icon='logo']");
 		wait.until(ExpectedConditions.invisibilityOf(logo));
 		JavascriptExecutor js = ((JavascriptExecutor)driver);
@@ -27,9 +31,14 @@ public class Whatsapp {
 		WebElement search = driver.findElementById("input-chatlist-search");
 		wait.until(ExpectedConditions.visibilityOf(search));
 		search.sendKeys(groupName, Keys.ENTER, msg, Keys.ENTER);
-		
-		
-		
+		WebElement uploadFile = driver.findElementByXPath("(//input[@type='file'])[1]");
+		String path = "E:\\a.jpg";
+		File f = detect.getLocalFile(path);
+		((RemoteWebElement)uploadFile).setFileDetector(detect);
+		uploadFile.sendKeys(f.getAbsolutePath());
+
+
+
 
 
 	}
