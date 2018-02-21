@@ -15,7 +15,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 public class Whatsapp {
-	String groupName = "9962251412";
+	String groupName = "996225 1412";
 	String msg = "test";
 	String path = "H:\\a.jpg";
 	@Test
@@ -37,7 +37,7 @@ public class Whatsapp {
 		WebElement search = driver.findElementById("input-chatlist-search");
 		wait.until(ExpectedConditions.visibilityOf(search));
 		search.sendKeys(groupName);/*, Keys.ENTER, msg, Keys.ENTER);*/
-		WebElement searchResult = driver.findElementByXPath("(//span[@title='+91 99622 51412'])[1]");
+		WebElement searchResult = driver.findElementByXPath("(//span[@title='+91 "+groupName+"'])[1]");
 		searchResult.click();
 		driver.switchTo().activeElement().sendKeys(msg, Keys.ENTER);		
 		driver.findElementByXPath("//span[@data-icon='clip']").click();
