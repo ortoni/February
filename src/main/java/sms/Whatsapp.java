@@ -46,7 +46,7 @@ public class Whatsapp {
 		((RemoteWebElement)uploadFile).setFileDetector(detect);
 		uploadFile.sendKeys(f.getAbsolutePath());
 		wait.until(ExpectedConditions.
-				presenceOfElementLocated(By.xpath("//span[text()='Add a caption…']"))).sendKeys("test");
+				presenceOfElementLocated(By.xpath("//span[text()='Add a captionï¿½']"))).sendKeys("test");
 		driver.findElementByXPath("//span[@data-icon='send-light']").click();
 		try {
 			WebElement uploadText = driver.
