@@ -15,9 +15,9 @@ public class CountofFiles {
 			System.out.println(file.toString());
 		}
 		System.out.println("******************************");
-		for (String flist : list) {
-			if (flist.endsWith("docx") || flist.endsWith("xlsx") ==true) {
-				System.out.println(flist);
+		for (String fileExtension : list) {
+			if (fileExtension.endsWith("docx") || fileExtension.endsWith("xlsx") ==true) {
+				System.out.println(fileExtension);
 			}
 		}
 		// Using apache POI
