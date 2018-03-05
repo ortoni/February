@@ -7,8 +7,22 @@ import org.apache.commons.io.FilenameUtils;
 public class CountofFiles {
 
 	public static void main(String[] args) {
+		//using java
 		File f = new File("E:\\Koushik\\Documents");
-		int count = 0;
+		String[] list = f.list();
+		System.out.println("Total length including sub folder "+list.length);
+		for (String file : list) {
+			System.out.println(file.toString());
+		}
+		System.out.println("******************************");
+		for (String flist : list) {
+			if (flist.endsWith("docx") || flist.endsWith("xlsx") ==true) {
+				System.out.println(flist);
+			}
+		}
+		// Using apache POI
+		//list.
+		/*	int count = 0;
 		for (File file : f.listFiles()) {
 			if (file.isFile()) {
 				String name = file.getName();
@@ -21,7 +35,7 @@ public class CountofFiles {
 			}
 		}
 		System.out.println("total number of files: " + count);
-
+		 */
 	}
 
 }
