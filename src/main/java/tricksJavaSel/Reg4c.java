@@ -19,7 +19,7 @@ public class Reg4c {
 
 		// if multiple matches
 		while (match.find()) {
-			System.out.println(match.group());            
+			System.out.println(match.group().equals("Amazon"));            
 		}
 	}
 
