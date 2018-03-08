@@ -16,5 +16,6 @@ public class Cricket {
 		d.findElementById("lst-ib").sendKeys("cricket", Keys.ENTER);
 		List<WebElement> cr = d.findElementsByXPath("//*[contains(text(),'cricket') or contains(text(),'Cricket')]");
 		System.out.println(cr.size());
+		d.close();
 	}
 }
