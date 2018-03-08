@@ -1,4 +1,4 @@
-package javaChallenge;
+package tricksJavaSel;
 
 public class PlaindromeSeries {
 

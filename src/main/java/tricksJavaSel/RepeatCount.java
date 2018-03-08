@@ -1,4 +1,4 @@
-package javaChallenge;
+package tricksJavaSel;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;

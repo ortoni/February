@@ -1,4 +1,4 @@
-package javaChallenge;
+package tricksJavaSel;
 
 import java.util.ArrayList;
 import java.util.Arrays;
