@@ -11,7 +11,8 @@ public class RepeatCount {
 		HashMap<Character, Integer> ma = new LinkedHashMap<Character, Integer>();
 
 		String str = "I mam getting bette evey day";
-		for (char character : str .toCharArray()) {
+		char[] charArray = str .toCharArray();
+		for (char character : charArray) {
 			if (ma.containsKey(character)) {
 				count = ma.get(character);
 				ma.put(character, count + 1);
