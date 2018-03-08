@@ -7,7 +7,7 @@ import java.util.Map.Entry;
 public class RepeatCount {
 
 	public static void main(String[] args) {
-		int count;
+		int count = 0;
 		HashMap<Character, Integer> ma = new LinkedHashMap<Character, Integer>();
 
 		String str = "I mam getting bette evey day";
