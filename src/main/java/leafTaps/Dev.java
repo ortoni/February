@@ -12,10 +12,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 public class Dev {
-	ChromeDriver driver;
 	@Test
 	public void dev() throws InterruptedException {
-		driver = new ChromeDriver();
+		//System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
+		ChromeDriver driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(1, TimeUnit.MINUTES);
 		driver.manage().window().maximize();
 		driver.get("https://devfindgood.goodgrid.com/FindGood.TMS.Web/ws-findgood/findgood/");
@@ -28,7 +28,6 @@ public class Dev {
 		Thread.sleep(4000);
 		driver.findElementByXPath("//div[@class='fg-add-calendar clickable add']").click();
 		driver.findElementByXPath("//span[text()='Guests:']/following::input[1]").sendKeys("ma");
-		//jwait();
 		Actions actions = new Actions(driver);
 		actions.moveToElement(driver.findElementByXPath("//input[@placeholder='Enter a location']"));
 		actions.click();
