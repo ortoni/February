@@ -2,6 +2,7 @@ package leafTaps;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.TreeSet;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Keys;
@@ -16,6 +17,7 @@ public class Cricket {
 		d.findElementById("lst-ib").sendKeys("cricket", Keys.ENTER);
 		List<WebElement> cr = d.findElementsByXPath("//*[contains(text(),'cricket') or contains(text(),'Cricket')]");
 		System.out.println(cr.size());
+		System.out.println(d.getPageSource());
 		d.close();
 	}
 }
