@@ -1,4 +1,4 @@
-package leafTaps;
+package others;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.chrome.ChromeDriver;
