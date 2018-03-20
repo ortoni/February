@@ -13,10 +13,8 @@ import org.testng.annotations.Test;
 
 public class TheRoxyCinemas {
 	@Test
-	public void dev() throws InterruptedException {
-		ChromeOptions op = new ChromeOptions();
-		op.setHeadless(true);
-		ChromeDriver driver = new ChromeDriver(op);
+	public void dev() throws InterruptedException {		
+		ChromeDriver driver = new ChromeDriver();
 		System.out.println("browser launched");
 		driver.manage().timeouts().implicitlyWait(1, TimeUnit.MINUTES);
 		driver.manage().window().maximize();
