@@ -27,7 +27,7 @@ public class DownloadFiles {
 		cap.setCapability(ChromeOptions.CAPABILITY, chromeOptionsMap);
 		cap.setCapability(ChromeOptions.CAPABILITY, options);
 
-		driver = new ChromeDriver();
+		driver = new ChromeDriver(cap);
 		driver.manage().window().maximize();
 		driver.get("http://www.seleniumhq.org/download/");
 		driver.findElement(By.linkText("32 bit Windows IE")).click();
