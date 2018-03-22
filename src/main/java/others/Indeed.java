@@ -13,19 +13,18 @@ import org.testng.annotations.Test;
 
 public class Indeed {
 	ChromeDriver driver;
+	Actions builder;
 	@Test
 	public void indeed() {
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		driver.get("https://www.indeed.co.in/Fresher-jobs?vjk=1e60f67738a9e84d"); 
-		List<WebElement> joblinks = driver.findElementsByXPath("(//td[@id='resultsCol'])//a[@data-tn-element='jobTitle']");
-		Actions newTab = new Actions(driver);
+		driver.get("https://www.indeed.co.in/Fresher-jobs"); 
+		List<WebElement> joblinks = 
+				driver.findElementsByXPath("(//td[@id='resultsCol'])//a[@data-tn-element='jobTitle']");		
 		int i =1;
 		for (WebElement clcikOneByOne : joblinks) {
-			for (int j = 0; j < 2; j++) {
-				newTab.sendKeys(Keys.CONTROL).click(clcikOneByOne).perform();
-			}
+			openInNewTab(clcikOneByOne);
 			switchToWindow(i);
 			System.out.println(driver.getTitle() +"\n");
 			driver.close();
@@ -39,5 +38,10 @@ public class Indeed {
 		List<String> allHandles = new ArrayList<String>();
 		allHandles.addAll(allWindowHandles);
 		driver.switchTo().window(allHandles.get(index));
+	}
+	public void openInNewTab(WebElement ele) {
+		builder = new Actions(driver);
+		ele.click();
+		builder.sendKeys(Keys.CONTROL).click(ele).perform();
 	}
 }

@@ -12,6 +12,7 @@ import org.testng.annotations.Test;
 public class DownloadFiles {
 	RemoteWebDriver driver;
 	DesiredCapabilities cap;
+	@SuppressWarnings("deprecation")
 	public void downloadFiles()	{
 		ChromeOptions options = new ChromeOptions();
 
