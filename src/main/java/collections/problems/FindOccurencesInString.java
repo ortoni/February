@@ -49,9 +49,7 @@ public class FindOccurencesInString {
 		}else{
 			System.out.println(check.split("a").length-1);
 		}
-		
-		
-		
+				
 		// Solution 4:  How about replaceAll??
 		// count before replace - count after replace??
 		

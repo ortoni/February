@@ -16,7 +16,7 @@ public class DownloadFiles {
 	public void downloadFiles()	{
 		ChromeOptions options = new ChromeOptions();
 
-		String downloadFilepath = "K:\\";
+		String downloadFilepath = "K:\\Koushik\\Documents\\Grid\\Grid";
 		HashMap<String, Object> setPath = new HashMap<String, Object>();	
 		setPath.put("download.default_directory", downloadFilepath);
 
@@ -31,6 +31,6 @@ public class DownloadFiles {
 		driver = new ChromeDriver(cap);
 		driver.manage().window().maximize();
 		driver.get("http://www.seleniumhq.org/download/");
-		driver.findElement(By.linkText("32 bit Windows IE")).click();
+		driver.findElement(By.linkText("3.11.0")).click();
 	}
 }
