@@ -41,7 +41,6 @@ public class Indeed {
 	}
 	public void openInNewTab(WebElement ele) {
 		builder = new Actions(driver);
-		ele.click();
-		builder.sendKeys(Keys.CONTROL).click(ele).perform();
+		builder.sendKeys(ele,Keys.CONTROL).click().perform();
 	}
 }
