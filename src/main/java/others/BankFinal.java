@@ -45,9 +45,13 @@ public class BankFinal {
 			String am = newAmount.replaceAll("\\D+", "");
 			parseInt = Integer.parseInt(am);
 			System.out.println(Integer.parseInt(am));
-		} while (!(parseInt >= 25000));
+		} while (!(parseInt >10000));
 		System.out.println("After Sliding");
-		System.out.println(driver.findElementByXPath("(//div[@class='tooltip-inner'])[4]").getText());		
+		System.out.println(driver.findElementByXPath("(//div[@class='tooltip-inner'])[4]").getText());	
+		/*String attribute = driver.findElementByXPath("//input[@type='tel' and @name='form.details.applicant.income.monthlyTakeHomeSalary']")
+		.getAttribute("placeholder");
+		System.out.println("final money = "+attribute);*/
+		Thread.sleep(5000);
 		driver.quit();
 	}
 } 

@@ -1,13 +1,16 @@
 package sms;
 
 import java.io.File;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.html5.LocalStorage;
 import org.openqa.selenium.remote.LocalFileDetector;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -21,16 +24,22 @@ public class Whatsapp {
 	@Test
 	public void watsap() {
 		ChromeDriver driver = new ChromeDriver();
+		
 		driver.manage().timeouts().implicitlyWait(1, TimeUnit.MINUTES);
 		driver.manage().window().maximize();
 		driver.get("https://web.whatsapp.com/");
+		Set<Cookie> cookies = driver.manage().getCookies();
+		for (Cookie cook : cookies) {
+			System.out.printf("%s ",cook.getDomain(), cook.getExpiry().toString(), cook.getName(),
+					cook.getPath(), cook.getValue(), cook.isHttpOnly(), cook.isSecure());
+		}
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		LocalFileDetector detect = new LocalFileDetector();
 		try {
 			WebElement logo = driver.findElementByXPath("//span[@data-icon='logo']");
 			wait.until(ExpectedConditions.invisibilityOf(logo));
 		} catch (Exception e1) {
-			e1.printStackTrace();
+			//e1.printStackTrace();
 		}
 		JavascriptExecutor js = ((JavascriptExecutor)driver);
 		js.executeScript("return !!window.jQuery && window.jQuery.active == 0");
