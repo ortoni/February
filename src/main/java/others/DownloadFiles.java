@@ -2,7 +2,6 @@ package others;
 
 import java.util.HashMap;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -14,23 +13,26 @@ public class DownloadFiles {
 	DesiredCapabilities cap;
 	@SuppressWarnings("deprecation")
 	public void downloadFiles()	{
+		System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
 		ChromeOptions options = new ChromeOptions();
 
-		String downloadFilepath = "K:\\Koushik\\Documents\\Grid\\Grid";
+		String downloadFilepath = "K:\\";
 		HashMap<String, Object> setPath = new HashMap<String, Object>();	
-		setPath.put("download.default_directory", downloadFilepath);
+		setPath.put("download.default_directory", downloadFilepath); //To set path
+		setPath.put("safebrowsing.enabled", "false"); // To disable security check
 
 		HashMap<String, Object> chromeOptionsMap = new HashMap<String, Object>();
 		options.setExperimentalOption("prefs", setPath);
 		options.addArguments("--disable-extensions"); //to disable browser extension popup
-
-		cap = DesiredCapabilities.chrome();
+		
+		cap = DesiredCapabilities.chrome(); //Adding capabilities
 		cap.setCapability(ChromeOptions.CAPABILITY, chromeOptionsMap);
 		cap.setCapability(ChromeOptions.CAPABILITY, options);
 
+
 		driver = new ChromeDriver(cap);
 		driver.manage().window().maximize();
-		driver.get("http://www.seleniumhq.org/download/");
-		driver.findElement(By.linkText("3.11.0")).click();
+		driver.get("https://www.win-rar.com/predownload.html");
+		driver.findElementByLinkText("Download WinRAR").click();
 	}
 }

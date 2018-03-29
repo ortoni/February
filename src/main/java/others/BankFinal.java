@@ -27,7 +27,8 @@ public class BankFinal {
 		Thread.sleep(1000);
 		wait.until(ExpectedConditions.visibilityOf(
 				driver.findElementByXPath("//input[@type='text' and @name='form.applicantPlaceHolder.companyName']")))
-		.sendKeys("testleaf", Keys.ENTER);
+		.sendKeys("voda");
+		wait.until(ExpectedConditions.visibilityOf(driver.findElementByXPath("(//span[@class='tt-suggestions']/div/p)[1]"))).click();		
 		WebElement slider = driver.findElementByXPath("(//div[@class='tooltip-inner'])[4]");
 		wait.until(ExpectedConditions.visibilityOf(slider));
 		int x;
