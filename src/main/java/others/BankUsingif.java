@@ -8,7 +8,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class BankFinal {
+public class BankUsingif {
 
 	public static void main(String[] args) throws InterruptedException {
 		ChromeDriver driver = new ChromeDriver();
@@ -30,24 +30,19 @@ public class BankFinal {
 		wait.until(ExpectedConditions.visibilityOf(driver.findElementByXPath("(//span[@class='tt-suggestions']/div/p)[1]"))).click();		
 		WebElement slider = driver.findElementByXPath("(//div[@class='tooltip-inner'])[4]");
 		wait.until(ExpectedConditions.visibilityOf(slider));
-		int x;
-		x = slider.getLocation().getX();
-		int y = slider.getLocation().getY();
 		String text = driver.findElementByXPath("(//div[@class='tooltip-inner'])[4]").getText();
 		System.out.println("Initial Amount = "+text);
 		Actions act = new Actions(driver);
-		int parseInt ;
-		int z = x;
+		String reqAm = "26,000";
+		String newAmount; 
 		do {
-			act.clickAndHold(slider).moveByOffset((z-x), y).release().perform();
-			z++;
-			String newAmount = driver.findElementByXPath("(//div[@class='tooltip-inner'])[4]").getText();
-			String am = newAmount.replaceAll("\\D+", "");
-			parseInt = Integer.parseInt(am);
-			System.out.println(Integer.parseInt(am));
-		} while (!(parseInt >=10000));
+			act.clickAndHold(slider).moveByOffset(5, slider.getLocation().getY()).release().perform();
+			WebElement am = driver.findElementByXPath("(//div[@class='tooltip-inner'])[4]");
+			newAmount = am.getText();
+			System.out.println(am.getLocation().getX());
+		} while (!newAmount.equals(reqAm));
 		System.out.println("After Sliding");
-		System.out.println(driver.findElementByXPath("(//div[@class='tooltip-inner'])[4]").getText());	
+		System.out.println(driver.findElementByXPath("(//div[@class='tooltip-inner'])[4]").getText());
 		Thread.sleep(5000);
 		driver.quit();
 	}
