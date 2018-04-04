@@ -15,7 +15,7 @@ public class UsingFaker extends ProjectMethods {
 	String firstName;
 	String lastName;
 	//@BeforeMethod
-	@BeforeMethod
+//	@BeforeMethod
 	public void beforeMethod(){
 		test = startTestCase("test");
 		test.assignCategory("faker");
@@ -26,15 +26,18 @@ public class UsingFaker extends ProjectMethods {
 		click(locateElement("class", "decorativeSubmit"));
 		click(locateElement("link", "CRM/SFA"));
 		click(locateElement("link", "Create Lead"));
-	}
+	}@Test
 	public void generateTestData(){
 		 faker = new Faker(new Locale("en-IND"));
-		companyName = faker.company().industry();
+		companyName = faker.company().buzzword();
 		firstName = faker.name().firstName();
 		lastName = faker.name().lastName();
+		for (int i = 0; i < 100; i++) {
+			System.out.println(faker.gameOfThrones().toString());
+		}
 	}
 	
-	@Test(invocationCount = 2)
+//	@Test(invocationCount = 3)
 	public void test() {
 		generateTestData();
 		type(locateElement("createLeadForm_companyName"), companyName);
