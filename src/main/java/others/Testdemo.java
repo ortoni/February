@@ -2,9 +2,10 @@ package others;
 
 import org.testng.annotations.Test;
 
-@Test
+
 
 public class Testdemo extends BeforeTest {
+	@Test
 	public void test1() {
 		System.out.println("test1");
 	}

@@ -32,19 +32,20 @@ public class UsingFaker extends ProjectMethods {
 		click(locateElement("link", "Create Lead"));
 	}
 	public void generateTestData(){
-		 faker = new Faker(new Locale("en-IND"));
+		faker = new Faker(new Locale("en-IND"));
 		companyName = faker.company().industry();
 		firstName = faker.name().firstName();
 		lastName = faker.name().lastName();
-		
-		
+		//faker.internet().emailAddress();
+
+
 		/*for (int i = 0; i <10; i++) {
 			GameOfThrones gameOfThrones = faker.gameOfThrones();
 			String character = gameOfThrones.character();
 			System.out.println(character);
 		}*/
 	}
-	
+
 	@Test(invocationCount = 3)
 	public void test() {
 		generateTestData();
