@@ -12,6 +12,10 @@ import org.testng.annotations.Test;
 
 import com.github.javafaker.Faker;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import wdMethods.ProjectMethods;
 
 public class UsingFaker extends ProjectMethods {
@@ -19,7 +23,7 @@ public class UsingFaker extends ProjectMethods {
 	String companyName;
 	String firstName;
 	String lastName;
-	@BeforeMethod
+	@BeforeMethod(/*description = "This is a test for Allure"*/)
 	public void beforeMethod(){
 		test = startTestCase("test");
 		test.assignCategory("faker");
@@ -36,17 +40,13 @@ public class UsingFaker extends ProjectMethods {
 		companyName = faker.company().industry();
 		firstName = faker.name().firstName();
 		lastName = faker.name().lastName();
-		//faker.internet().emailAddress();
-
-
-		/*for (int i = 0; i <10; i++) {
-			GameOfThrones gameOfThrones = faker.gameOfThrones();
-			String character = gameOfThrones.character();
-			System.out.println(character);
-		}*/
+		
 	}
 
 	@Test(invocationCount = 3)
+	@Epic("Allure examples")
+	@Feature("Junit 4 support")
+	@Description("Faker using Allure reports")
 	public void test() {
 		generateTestData();
 		type(locateElement("createLeadForm_companyName"), companyName);

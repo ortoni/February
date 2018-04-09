@@ -18,8 +18,8 @@ public class Code_27 {
 			System.out.println(s.getKey()+" :"+s.getValue());
 			System.out.println(s);
 		} 
-		Integer key = Collections.max(map.entrySet(), Entry.comparingByValue()).getKey();
-		System.out.println(key);
+		/*Integer key = Collections.max(map.entrySet(), Entry.comparingByValue()).getKey();
+		System.out.println(key);*/
 	}
 
 }
