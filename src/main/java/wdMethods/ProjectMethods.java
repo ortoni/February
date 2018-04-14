@@ -5,11 +5,14 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.DataProvider;
+
+import utils.ExcelDataProvider;
 
 public class ProjectMethods extends SeMethods{
 
 	public String browserName;
-	//public String dataSheetName;
+	public String dataSheetName;
 
 	@BeforeSuite
 	public void beforeSuite(){
@@ -37,9 +40,9 @@ public class ProjectMethods extends SeMethods{
 
 	}
 
-	/*@DataProvider(name="fetchData")
+	@DataProvider(name="fetchData")
 	public  Object[][] getData(){
-		return DataInputProvider.getSheet(dataSheetName);		
-	}	
-*/
+		return ExcelDataProvider.getData(dataSheetName);
+	}
+
 }
