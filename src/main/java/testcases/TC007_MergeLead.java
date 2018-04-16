@@ -21,7 +21,7 @@ public class TC007_MergeLead extends ProjectMethods {
 	@Test(dataProvider="fetchData")
 	public void EditLead(String uName,String pwd,String ID1,String ID2,String ID3,String records1) {
 		try {
-		new LoginPage()
+		new LoginPage(driver, test)
 		.enterUserName(uName)
 		.enterPassword(pwd)
 		.clickLogIn()

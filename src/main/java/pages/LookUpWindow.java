@@ -1,15 +1,20 @@
 package pages;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
+
+import com.aventstack.extentreports.ExtentTest;
 
 import wdMethods.ProjectMethods;
 
 public class LookUpWindow extends ProjectMethods {
 
-	public LookUpWindow() {		
+	public LookUpWindow(RemoteWebDriver driver, ExtentTest test) {	
+		this.driver = driver;
+		this.test = test;
 		PageFactory.initElements(driver,this);
 	}
 
@@ -26,7 +31,7 @@ public class LookUpWindow extends ProjectMethods {
 	
 	public FindLeadsWindow clickFindLeadsButton() {
 	clickWithNoSnap(eleFindLeadsButton);
-		return new FindLeadsWindow();		
+		return new FindLeadsWindow(driver, test);		
 	}
 	
 }

@@ -12,10 +12,11 @@ import wdMethods.ProjectMethods;
 
 public class LoginPage extends ProjectMethods{
 	
-	public LoginPage() {
+	public LoginPage(RemoteWebDriver driver, ExtentTest test) {	
+		this.driver = driver;
+		this.test = test;
 		PageFactory.initElements(driver,this);
 	}
-	
 	@FindBy(how=How.ID,using="username")
 	private WebElement eleUserName;
 	
@@ -39,7 +40,7 @@ public class LoginPage extends ProjectMethods{
 	
 	public HomePage clickLogIn() {
 		click(eleLogin);
-		return new HomePage();		
+		return new HomePage(driver, test);		
 	}
 	
 	public LoginPage clickLogInForFailer() {

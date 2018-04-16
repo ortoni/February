@@ -25,7 +25,7 @@ public class TC002_LoginForNegative extends ProjectMethods{
 	@Test(dataProvider="fetchData")
 	public void loginAndLogout(String uName,String pwd,String errMsg) {
 		
-		new LoginPage()
+		new LoginPage(driver, test)
 		.enterUserName(uName)
 		.enterPassword(pwd)
 		.clickLogInForFailer()

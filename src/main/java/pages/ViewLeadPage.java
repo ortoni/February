@@ -1,15 +1,20 @@
 package pages;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
+
+import com.aventstack.extentreports.ExtentTest;
 
 import wdMethods.ProjectMethods;
 
 public class ViewLeadPage extends ProjectMethods {
 	
-	public ViewLeadPage() {		
+	public ViewLeadPage(RemoteWebDriver driver, ExtentTest test) {	
+		this.driver = driver;
+		this.test = test;
 		PageFactory.initElements(driver,this);
 	}
 	
@@ -34,7 +39,7 @@ public class ViewLeadPage extends ProjectMethods {
 	
 	public MyLeadsPage clickDeleteButton() {
 	click(eleDeleteButton);
-		return new MyLeadsPage();		
+		return new MyLeadsPage(driver, test);		
 	}
 	
 	@FindBy(how=How.XPATH,using="//a[text()='Edit']")
@@ -42,14 +47,14 @@ public class ViewLeadPage extends ProjectMethods {
 	
 	public EditLeadPage clickEditButton() {
 	click(eleEditButton);
-		return new EditLeadPage();		
+		return new EditLeadPage(driver, test);		
 	}
 	@FindBy(how=How.XPATH,using="//a[text()='Duplicate Lead']")
 	private WebElement eleDuplicateButton;
 	
 	public DuplicateLeadPage clickDuplicateButton() {
 	click(eleDuplicateButton);
-		return new DuplicateLeadPage();		
+		return new DuplicateLeadPage(driver, test);		
 	}
 	
 }

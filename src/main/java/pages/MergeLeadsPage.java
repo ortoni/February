@@ -1,15 +1,20 @@
 package pages;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
+
+import com.aventstack.extentreports.ExtentTest;
 
 import wdMethods.ProjectMethods;
 
 public class MergeLeadsPage extends ProjectMethods {
 	
-	public MergeLeadsPage() {		
+	public MergeLeadsPage(RemoteWebDriver driver, ExtentTest test) {	
+		this.driver = driver;
+		this.test = test;
 		PageFactory.initElements(driver,this);
 	}
 	@FindBy(how=How.XPATH,using="(//img[@alt='Lookup'])[1]")
@@ -18,7 +23,7 @@ public class MergeLeadsPage extends ProjectMethods {
 	public FindLeadsWindow clickLookupIcon1() {
 	clickWithNoSnap(eleLookupIcon1);
 	switchToWindow(1);
-		return new FindLeadsWindow();		
+		return new FindLeadsWindow(driver, test);		
 	}
 	
 	@FindBy(how=How.XPATH,using="(//img[@alt='Lookup'])[2]")
@@ -27,7 +32,7 @@ public class MergeLeadsPage extends ProjectMethods {
 	public FindLeadsWindow clickLookupIcon2() {
 	clickWithNoSnap(eleLookupIcon2);
 	switchToWindow(1);
-		return new FindLeadsWindow();		
+		return new FindLeadsWindow(driver, test);		
 	}
 	@FindBy(how=How.XPATH,using="//a[text()='Merge']")
 	private WebElement eleClickMergeButton;
@@ -35,6 +40,6 @@ public class MergeLeadsPage extends ProjectMethods {
 	public MyLeadsPage clickMergeButton() {
 	clickWithNoSnap(eleClickMergeButton);
 	acceptAlert();
-		return new MyLeadsPage();		
+		return new MyLeadsPage(driver, test);		
 	}
 }

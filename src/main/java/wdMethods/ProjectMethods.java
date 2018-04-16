@@ -40,7 +40,7 @@ public class ProjectMethods extends SeMethods{
 
 	}
 
-	@DataProvider(name="fetchData")
+	//@DataProvider(name="fetchData")
 	public  Object[][] getData(){
 		return ExcelDataProvider.getData(dataSheetName);
 	}

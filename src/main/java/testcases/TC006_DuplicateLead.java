@@ -22,7 +22,7 @@ public class TC006_DuplicateLead extends ProjectMethods {
 	@Test(dataProvider="fetchData")
 	public void EditLead(String uName,String pwd,String email,String Dtext,String cname) {
 		try {
-		new LoginPage()
+		new LoginPage(driver, test)
 		.enterUserName(uName)
 		.enterPassword(pwd)
 		.clickLogIn()

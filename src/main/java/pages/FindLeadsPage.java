@@ -1,15 +1,20 @@
 package pages;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
+
+import com.aventstack.extentreports.ExtentTest;
 
 import wdMethods.ProjectMethods;
 
 public class FindLeadsPage extends ProjectMethods {
 
-	public FindLeadsPage() {		
+	public FindLeadsPage(RemoteWebDriver driver, ExtentTest test) {	
+		this.driver = driver;
+		this.test = test;
 		PageFactory.initElements(driver,this);
 	}
 	
@@ -50,7 +55,7 @@ public class FindLeadsPage extends ProjectMethods {
 	
 	public FindLeadsPage clickPhoneTab() {
 	click(elePhoneTab);
-		return new FindLeadsPage();		
+		return new FindLeadsPage(driver, test);		
 	}
 	
 	@FindBy(how=How.XPATH,using="//input[@name='phoneAreaCode']")
@@ -74,7 +79,7 @@ public class FindLeadsPage extends ProjectMethods {
 	
 	public FindLeadsPage clickEmailTab() {
 	click(eleEmailTab);
-		return new FindLeadsPage();		
+		return new FindLeadsPage(driver, test);		
 	}
 	
 	@FindBy(how=How.XPATH,using="//input[@name='emailAddress']")
@@ -90,7 +95,7 @@ public class FindLeadsPage extends ProjectMethods {
 	
 	public FindLeadsPage clickFindLeadsButton() {
 	click(eleFindLeadsButton);
-		return new FindLeadsPage();		
+		return new FindLeadsPage(driver, test);		
 	}
 	
 	@FindBy(how=How.XPATH,using="(//div[@class='x-grid3-cell-inner x-grid3-col-partyId'])[1]/a")
@@ -98,7 +103,7 @@ public class FindLeadsPage extends ProjectMethods {
 	
 	public ViewLeadPage clickLeadIDLink() {
 	click(eleLeadIDLink);
-		return new ViewLeadPage();		
+		return new ViewLeadPage(driver, test);		
 	}
 	
 	@FindBy(how=How.XPATH,using="//div[text()='No records to display']")

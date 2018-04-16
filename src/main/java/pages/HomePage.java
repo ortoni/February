@@ -6,11 +6,15 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
+import com.aventstack.extentreports.ExtentTest;
+
 import wdMethods.ProjectMethods;
 
 public class HomePage extends ProjectMethods{
 	
-	public HomePage() {		
+	public HomePage(RemoteWebDriver driver, ExtentTest test) {	
+		this.driver = driver;
+		this.test = test;
 		PageFactory.initElements(driver,this);
 	}	
 	
@@ -20,7 +24,7 @@ public class HomePage extends ProjectMethods{
 	public LoginPage clickLogOut() {
 		//WebElement eleLogin = locateElement("class","decorativeSubmit");
 		click(eleLogOut);
-		return new LoginPage();		
+		return new LoginPage(driver, test);		
 	}
 	
 	@FindBy(how=How.XPATH,using="//h2[text()[contains(.,'Welcome')]]")
@@ -36,7 +40,7 @@ public class HomePage extends ProjectMethods{
 	
 	public MyHomePage clickCrmsfa() {
 	click(eleCrmLink);
-		return new MyHomePage();		
+		return new MyHomePage(driver, test);		
 	}
 	
 	

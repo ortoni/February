@@ -1,15 +1,20 @@
 package editleadpages;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
+
+import com.aventstack.extentreports.ExtentTest;
 
 import wdMethods.ProjectMethods;
 
 public class HomePage extends ProjectMethods{
 
-	public HomePage() {		
+	public HomePage(RemoteWebDriver driver, ExtentTest test) {	
+		this.driver = driver;
+		this.test = test;
 		PageFactory.initElements(driver,this);
 	}	
 
@@ -18,7 +23,7 @@ public class HomePage extends ProjectMethods{
 
 	public MyHomePage clickcrmSfaLink() {
 		click(elecrmSfaLink);
-		return new MyHomePage();		
+		return new MyHomePage(driver, test);		
 	}
 
 

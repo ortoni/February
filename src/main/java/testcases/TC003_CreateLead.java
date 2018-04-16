@@ -27,7 +27,7 @@ public class TC003_CreateLead extends ProjectMethods {
 	@Test(dataProvider="fetchData")
 	public void CreateLead(String uName,String pwd,String cName,String fName,String lName) {
 		try {
-		new LoginPage()
+		new LoginPage(driver, test)
 		.enterUserName(uName)
 		.enterPassword(pwd)
 		.clickLogIn()

@@ -18,14 +18,15 @@ public class TC001_LoginAndLogout extends ProjectMethods{
 		browserName="chrome";
 		dataSheetName="TC001";
 	}
-	@Test(dataProvider="fetchData")
-	public void loginAndLogout(String uName,String pwd,String vName) {
+	//@Test(dataProvider="fetchData")
+	@Test
+	public void loginAndLogout(/*String uName,String pwd,String vName*/) {
 		
-		new LoginPage()
-		.enterUserName(uName)
-		.enterPassword(pwd)
+		new LoginPage(driver, test)
+		.enterUserName("DemoSalesManager")
+		.enterPassword("crmsfa")
 		.clickLogIn()
-		.verifyLoggedName(vName)
+		.verifyLoggedName("")
 		.clickLogOut();			
 	}
 

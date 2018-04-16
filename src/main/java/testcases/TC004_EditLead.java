@@ -22,7 +22,7 @@ public class TC004_EditLead extends ProjectMethods {
 	@Test(dataProvider="fetchData")
 	public void EditLead(String uName,String pwd,String LeadID,String cName) {
 		try {
-		new LoginPage()
+		new LoginPage(driver, test)
 		.enterUserName(uName)
 		.enterPassword(pwd)
 		.clickLogIn()

@@ -22,7 +22,7 @@ public class TC005_DeleteLead extends ProjectMethods {
 	@Test(dataProvider="fetchData")
 	public void DeleteLead(String uName,String pwd,String code,String number,String ID,String records) {
 		try {
-		new LoginPage()
+		new LoginPage(driver, test)
 		.enterUserName(uName)
 		.enterPassword(pwd)
 		.clickLogIn()
