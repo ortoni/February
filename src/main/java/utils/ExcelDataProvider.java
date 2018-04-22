@@ -13,7 +13,7 @@ public class ExcelDataProvider{
 		String[][] data = null ;
 
 		try {
-			FileInputStream fis = new FileInputStream("./data/"+dataSheetName+".xlsx");
+			FileInputStream fis = new FileInputStream(dataSheetName);
 			XSSFWorkbook workbook = new XSSFWorkbook(fis);
 			XSSFSheet sheet = workbook.getSheetAt(0);	
 
@@ -39,19 +39,20 @@ public class ExcelDataProvider{
 							}
 
 							data[i-1][j]  = cellValue; // add to the data array
+							System.out.println(cellValue);
 						} catch (Exception e) {
- 							e.printStackTrace();
+ 							//e.printStackTrace();
 						}				
 					}
 
 				} catch (Exception e) {
- 					e.printStackTrace();
+ 					//e.printStackTrace();
 				}
 			}
 			fis.close();
 			workbook.close();
 		} catch (Exception e) {
- 			e.printStackTrace();
+ 			//e.printStackTrace();
 		}
 
 		return data;

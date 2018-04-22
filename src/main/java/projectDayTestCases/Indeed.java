@@ -1,4 +1,4 @@
-package others;
+package projectDayTestCases;
 
 import java.util.ArrayList;
 import java.util.List;
