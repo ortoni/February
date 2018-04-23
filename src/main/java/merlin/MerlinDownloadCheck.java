@@ -1,31 +1,18 @@
 package merlin;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.net.InetAddress;
 import java.net.URL;
 import java.util.HashMap;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import org.apache.commons.io.FileUtils;
-import org.apache.http.HttpHost;
-import org.apache.http.HttpResponse;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicHttpEntityEnclosingRequest;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.openqa.selenium.Platform;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.remote.SessionId;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
@@ -35,13 +22,17 @@ public class MerlinDownloadCheck {
 	Actions act;
 	WebDriverWait wait;
 	RemoteWebDriver driver;
-	File file = new File("K:\\testData\\"+generateRandomFolderName());
+	
+	
+	String downloadFilepath;
+	File file ;
 	HashMap<String, Object> prefs;
 	@Test
 
 
 
 	public void merlin() throws InterruptedException, IOException	{
+		
 		/*options	 = new ChromeOptions();
 		prefs = new HashMap<String, Object>();	
 		prefs.put("download.default_directory", file.toString()); 
@@ -51,7 +42,6 @@ public class MerlinDownloadCheck {
 		//driver = new ChromeDriver(options); 		
 		 */
 
-		String downloadFilepath = "D:\\testData\\"+generateRandomFolderName();
 		HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
 		chromePrefs.put("profile.default_content_settings.popups", 0);
 
@@ -63,28 +53,43 @@ public class MerlinDownloadCheck {
 		cap.setCapability(ChromeOptions.CAPABILITY, options);
 
 		cap = new DesiredCapabilities(options);
+		
 		cap.setBrowserName("chrome");
 		cap.setVersion("ANY");
 		cap.setPlatform(Platform.WINDOWS);
 		driver = new RemoteWebDriver(
-				new URL("http://localhost:4421/wd/hub"), cap);
+				new URL("http://192.168.1.24:4444/wd/hub"), cap);
 
-		String[] hubDetails = getHostNameAndPort(driver.getSessionId().toString());
+		/*String[] hubDetails = getHostNameAndPort(driver.getSessionId().toString());
 		
 		for (String hubInfo : hubDetails) {
 			System.out.println(hubInfo);
 		}
-
+*/
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 
 		driver.get("http://reference1.mapinfo.com/software/anysite/english_AU/tutorials/Sample-Sales-Data.xlsx");
 		Thread.sleep(10000);
 		driver.close();
+		String dir = System.getProperty("user.dir", "write");
+		downloadFilepath = dir+generateRandomFolderName();
+		System.out.println(dir);
+		file = new File(dir+generateRandomFolderName());
+
+		InetAddress ip = InetAddress.getLocalHost();
+		String hostName = ip.getHostName();
+		String hostAddress = ip.getHostAddress();
+		System.out.println(hostName);
+		System.out.println(hostAddress);
+		
+		System.out.println(System.getProperty("os.name"));
+		System.out.println(System.getProperty("user.name"));
+		//String file = downloadFilepath.toString();
 		availabelFiles(file);
 	}
 
-	private static String[] getHostNameAndPort(String session) {
+	/*private static String[] getHostNameAndPort(String session) {
 		String[] hostAndPort = new String[2];
 		String errorMsg = "Failed to acquire remote webdriver node and port info. Root cause: ";
 
@@ -120,7 +125,7 @@ public class MerlinDownloadCheck {
 		return objToReturn;
 	}
 
-	// Verify downloaded data and delete the files along with folder
+*/	// Verify downloaded data and delete the files along with folder
 	public void availabelFiles(File dir) throws IOException {
 		//System.out.println(dir.exists());
 		dir.setExecutable(true);
