@@ -4,10 +4,12 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 
-import utils.ExcelDataProvider;
+import utils.DataInputProvider;
 
 public class ProjectMethods extends SeMethods{
 
@@ -20,8 +22,18 @@ public class ProjectMethods extends SeMethods{
 	}
 
 	@BeforeClass
-	public void beforeTest(){		
-		startTestModule("Faker test", "testing Faker");	
+	public void beforeClass(){		
+		startTestModule(testCaseName, testDescription);	
+	}
+
+
+
+	@BeforeMethod
+	public void beforeMethod(){
+		test = startTestCase(testNodes);
+		test.assignCategory(category);
+		test.assignAuthor(authors);
+		startApp(browserName,false);		
 	}
 
 	@AfterSuite
@@ -35,14 +47,13 @@ public class ProjectMethods extends SeMethods{
 
 	@AfterMethod
 	public void afterMethod(){
-		endTestcase();
 		closeAllBrowsers();
 
 	}
 
-	//@DataProvider(name="fetchData")
+	@DataProvider(name="fetchData")
 	public  Object[][] getData(){
-		return ExcelDataProvider.getData(dataSheetName);
-	}
+		return DataInputProvider.getSheet(dataSheetName);		
+	}	
 
 }

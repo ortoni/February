@@ -1,6 +1,7 @@
 package testDataGeneration;
 
 import java.util.Locale;
+
 /*<dependency>
 <groupId>com.github.javafaker</groupId>
 <artifactId>javafaker</artifactId>
@@ -28,7 +29,7 @@ public class UsingFaker extends ProjectMethods {
 		test = startTestCase("test");
 		test.assignCategory("faker");
 		test.assignAuthor("koushik");
-		startApp("chrome", "http://leaftaps.com/opentaps/control/main");
+		startApp("chrome");
 		type(locateElement("username"), "DemoSalesManager");
 		type(locateElement("password"), "crmsfa");
 		click(locateElement("class", "decorativeSubmit"));

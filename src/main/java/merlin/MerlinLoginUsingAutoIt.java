@@ -11,8 +11,9 @@ public class MerlinLoginUsingAutoIt {
 		ChromeDriver driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
-		driver.get("http://Madmin:Micr0.com@merlin.rheincs.net");
-		//Runtime.getRuntime().exec("./resources/Auth.exe");
+		//driver.get("http://Madmin:Micr0.com@merlin.rheincs.net");
+		driver.get("");
+		Runtime.getRuntime().exec("./resources/Auth.exe");
 		
 		
 		

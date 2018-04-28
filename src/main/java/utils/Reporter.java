@@ -13,9 +13,8 @@ public abstract class Reporter {
 
 	public static ExtentHtmlReporter html;
 	public static ExtentReports extent;
-	public  ExtentTest test, suiteTest;
-	public String testCaseName, testNodes , testDescription,
-	category, authors;
+	public static ExtentTest test, suiteTest;
+	public String testCaseName, testNodes, testDescription, category, authors;
 
 
 	public void startResult() {
@@ -52,7 +51,7 @@ public abstract class Reporter {
 				img = MediaEntityBuilder.createScreenCaptureFromPath
 						("./../reports/images/"+snapNumber+".jpg").build();
 			} catch (IOException e) {
-
+				
 			}
 		}
 		if(status.equalsIgnoreCase("PASS")) {
@@ -73,9 +72,6 @@ public abstract class Reporter {
 	}
 
 
-	public void endTestcase() {
-		extent.setAnalysisStrategy(AnalysisStrategy.CLASS);
-	}
 
 
 	public void endResult() {
