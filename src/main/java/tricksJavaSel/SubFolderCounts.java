@@ -14,7 +14,7 @@ public class SubFolderCounts {
 
 	public void availabelFiles(File dir) throws IOException {
 		File[] files = dir.listFiles();
-		System.out.println("Total no.of Files "+files.length);
+		System.out.println("Total no.of Files and folders "+files.length);
 		for (File file : files) {
 			if (file.isDirectory()) {
 				System.out.println("directory:" + file.getAbsolutePath());
