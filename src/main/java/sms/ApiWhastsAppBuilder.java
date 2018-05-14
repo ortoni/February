@@ -35,7 +35,7 @@ public class ApiWhastsAppBuilder{
 	public void launch() {
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(1, TimeUnit.MINUTES);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
 	public void waitAndClick(WebElement element) {
 		try {
