@@ -7,12 +7,12 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class DataInputProvider{
-	
+
 	public static int rowCount;
 
 	public static String[][] getSheet(String dataSheetName) {
-		
-		
+
+
 
 		String[][] data = null ;
 
@@ -28,7 +28,7 @@ public class DataInputProvider{
 			int columnCount = sheet.getRow(0).getLastCellNum();
 			data = new String[rowCount][columnCount];
 
-System.out.println(rowCount);
+			System.out.println(rowCount);
 			// loop through the rows
 			for(int i=1; i <rowCount+1; i++){
 				try {
@@ -44,34 +44,34 @@ System.out.println(rowCount);
 
 							data[i-1][j]  = cellValue; // add to the data array
 						} catch (Exception e) {
- 							e.printStackTrace();
+							e.printStackTrace();
 						}				
 					}
 
 				} catch (Exception e) {
- 					e.printStackTrace();
+					e.printStackTrace();
 				}
 			}
 			fis.close();
 			workbook.close();
 		} catch (Exception e) {
- 			e.printStackTrace();
+			e.printStackTrace();
 		}
 
 		return data;
 
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
+
+
+
+
+
+
+
+
+
+
+
 	}
 
 
