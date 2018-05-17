@@ -3,9 +3,11 @@ package alertAuthenticate;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.support.ui.Select;
 
 public class NetGearAuthenticate {
 	public static void main(String[] args) throws IOException, InterruptedException {
@@ -23,6 +25,7 @@ public class NetGearAuthenticate {
 			e.printStackTrace();
 		}
 		//driver.switchTo().activeElement().submit();
+		
 
 	}
 }
