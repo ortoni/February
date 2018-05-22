@@ -25,8 +25,8 @@ public class MonsterSendMail {
 		driver.manage().window().maximize();
 		driver.get("https://recruiter.monsterindia.com/");
 
-		driver.manage().addCookie(new Cookie("C", "AseVloSWbeP86G7Ee0cMWbpLGNDHxzCZ730818fb9a02beeefc4531dac636ed1e"));
-		driver.get("http://recruiter.monsterindia.com/v2/foldermanagement/index.html?folderID=22141480&prev=1&n=1");
+		driver.manage().addCookie(new Cookie("", null));
+		driver.get("");
 
 	//	for (int i = 1; i <=51; i++) {
 		//try {

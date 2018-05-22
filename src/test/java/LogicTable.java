@@ -1,6 +1,4 @@
 public class LogicTable {
-	@org.junit.Test
-
 	public void main() {
 		
 		boolean p, q;
