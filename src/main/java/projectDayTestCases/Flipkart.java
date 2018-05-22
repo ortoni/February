@@ -19,7 +19,7 @@ public class Flipkart {
 	Actions act;
 	WebDriverWait wait;
 	@Test
-	public void indeed() {
+	public void flip() {
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

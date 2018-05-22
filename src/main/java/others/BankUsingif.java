@@ -2,6 +2,7 @@ package others;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -26,8 +27,7 @@ public class BankUsingif {
 		Thread.sleep(1000);
 		wait.until(ExpectedConditions.visibilityOf(
 				driver.findElementByXPath("//input[@type='text' and @name='form.applicantPlaceHolder.companyName']")))
-		.sendKeys("voda");
-		wait.until(ExpectedConditions.visibilityOf(driver.findElementByXPath("(//span[@class='tt-suggestions']/div/p)[1]"))).click();		
+		.sendKeys("TestLeaf", Keys.ENTER);
 		WebElement slider = driver.findElementByXPath("(//div[@class='tooltip-inner'])[4]");
 		wait.until(ExpectedConditions.visibilityOf(slider));
 		String text = driver.findElementByXPath("(//div[@class='tooltip-inner'])[4]").getText();
