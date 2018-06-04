@@ -16,7 +16,6 @@ import projectDayTestCases.Flipkart;
 public class CheckStatus {
 	RemoteWebDriver driver;
 	@ Test
-
 	public void main() throws ClientProtocolException, IOException {
 		CloseableHttpClient client = HttpClientBuilder.create().build();
 		HttpResponse response = client.execute(new HttpGet("http://www.flipkart.com/"));

@@ -20,12 +20,14 @@ public class Indeed {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.get("https://www.indeed.co.in/Fresher-jobs"); 
+		driver.findElementByXPath("//button[text()='Dismiss']").click();
 		List<WebElement> joblinks = 
 				driver.findElementsByXPath("(//td[@id='resultsCol'])//a[@data-tn-element='jobTitle']");		
-		int i =1;
+
 		for (WebElement clcikOneByOne : joblinks) {
+
 			openInNewTab(clcikOneByOne);
-			switchToWindow(i);
+			switchToWindow(1);
 			System.out.println(driver.getTitle() +"\n");
 			driver.close();
 			switchToWindow(0);

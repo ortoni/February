@@ -25,8 +25,8 @@ public class ApiWhastsAppBuilder{
 
 	@BeforeClass
 	public void scan() {
-		String phoneNumber = "919962251412";
-		driver.get("https://api.whatsapp.com/send?phone=" + phoneNumber + "&text=testmsg");
+		String phoneNumber = "9962251412";
+		driver.get("https://api.whatsapp.com/send?phone=91" + phoneNumber + "&text=testmsg");
 		try {
 			Thread.sleep(100);
 			WebElement send = driver.findElementByLinkText("SEND");

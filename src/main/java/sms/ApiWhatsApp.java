@@ -1,16 +1,15 @@
 package sms;
 
-import java.util.List;
-
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 public class ApiWhatsApp extends ApiWhastsAppBuilder {
 	@Test(dataProvider = "whatsAppApi")
-	public void postJob(String phoneNumber) throws InterruptedException {
-		ReadNotepadFiles rf = new  ReadNotepadFiles();
-		List<String> msg = rf.notepad();
-		driver.get("https://api.whatsapp.com/send?phone=" + phoneNumber + "&text=" + msg.toString());
+	public void postJob(String phoneNumber, String msg) throws InterruptedException {
+		//		ReadNotepadFiles rf = new  ReadNotepadFiles();
+		//		List<String> msg = rf.notepad();
+		driver.get("https://api.whatsapp.com/send?phone=91" + phoneNumber + "&text=" + msg);
+		
 		// To navigate to next contact
 		try {
 			Thread.sleep(250);
@@ -26,7 +25,7 @@ public class ApiWhatsApp extends ApiWhastsAppBuilder {
 		}
 
 		// Disabled for performance 
-	/*			// If number is not available in WhatsApp!
+		/*			// If number is not available in WhatsApp!
 				try {
 					WebElement numberNotAvail = driver.findElementByXPath(
 							"//div[text()='Phone number shared via url is invalid.']/following::div[1]/div");
