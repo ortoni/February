@@ -1,14 +1,10 @@
 package others;
 
-import static org.testng.Assert.expectThrows;
-
 import java.util.concurrent.TimeUnit;
 
-import org.apache.poi.POIXMLProperties.ExtendedProperties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
