@@ -2,7 +2,6 @@ package utils;
 
 import java.io.IOException;
 
-import com.aventstack.extentreports.AnalysisStrategy;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
@@ -70,9 +69,6 @@ public abstract class Reporter {
 	public void reportStep(String desc, String status) {
 		reportStep(desc, status, true);
 	}
-
-
-
 
 	public void endResult() {
 		extent.flush();
