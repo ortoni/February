@@ -1,3 +1,4 @@
+
 package dailyprogram;
 
 public class Code_25 {
