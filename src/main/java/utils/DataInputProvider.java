@@ -59,19 +59,6 @@ public class DataInputProvider{
 		}
 
 		return data;
-
-
-
-
-
-
-
-
-
-
-
-
-
 	}
 
 

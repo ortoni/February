@@ -9,7 +9,7 @@ public class ApiWhatsApp extends ApiWhastsAppBuilder {
 		//		ReadNotepadFiles rf = new  ReadNotepadFiles();
 		//		List<String> msg = rf.notepad();
 		driver.get("https://api.whatsapp.com/send?phone=91" + phoneNumber + "&text=" + msg);
-		
+
 		// To navigate to next contact
 		try {
 			Thread.sleep(250);

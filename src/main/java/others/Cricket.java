@@ -15,9 +15,10 @@ public class Cricket {
 		d.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		d.get("https://www.google.co.in");
 		d.findElementById("lst-ib").sendKeys("cricket", Keys.ENTER);
-		List<WebElement> cr = d.findElementsByXPath("//*[contains(text(),'cricket') or contains(text(),'Cricket')]");
+		List<WebElement> cr = 
+				d.findElementsByXPath
+				("//*[contains(text(),'cricket') or contains(text(),'Cricket')]");
 		System.out.println(cr.size());
-		System.out.println(d.getPageSource());
 		d.close();
 	}
 }

@@ -9,7 +9,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class BankBazaar {
+public class BankBazaar1 {
 
 	public static void main(String[] args) throws InterruptedException {
 		ChromeDriver driver = new ChromeDriver();
@@ -33,17 +33,16 @@ public class BankBazaar {
 		String text = driver.findElementByXPath("(//div[@class='tooltip-inner'])[4]").getText();
 		System.out.println("Initial Amount = "+text);
 		Actions act = new Actions(driver);
-		String reqAm = "26,000";
+		String reqAm = "14,000";
 		String newAmount; 
 		do {
 			act.clickAndHold(slider).moveByOffset(5, slider.getLocation().getY()).release().perform();
 			WebElement am = driver.findElementByXPath("(//div[@class='tooltip-inner'])[4]");
 			newAmount = am.getText();
-			System.out.println(am.getLocation().getX());
 		} while (!newAmount.equals(reqAm));
 		System.out.println("After Sliding");
 		System.out.println(driver.findElementByXPath("(//div[@class='tooltip-inner'])[4]").getText());
 		Thread.sleep(5000);
-		driver.quit();
+		//driver.quit();
 	}
 } 

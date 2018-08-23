@@ -5,11 +5,11 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import org.junit.Test;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.testng.annotations.Test;
 
 public class Indeed {
 	ChromeDriver driver;
@@ -20,10 +20,10 @@ public class Indeed {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.get("https://www.indeed.co.in/Fresher-jobs"); 
-		driver.findElementByXPath("//button[text()='Dismiss']").click();
+		//driver.findElementByXPath("//button[text()='Dismiss']").click();
 		List<WebElement> joblinks = 
 				driver.findElementsByXPath("(//td[@id='resultsCol'])//a[@data-tn-element='jobTitle']");		
-
+		System.out.println(joblinks.size());
 		for (WebElement clcikOneByOne : joblinks) {
 
 			openInNewTab(clcikOneByOne);
@@ -43,6 +43,6 @@ public class Indeed {
 	}
 	public void openInNewTab(WebElement ele) {
 		builder = new Actions(driver);
-		builder.sendKeys(ele,Keys.CONTROL).click().perform();
+		builder.sendKeys(ele, Keys.CONTROL).click(ele).perform();
 	}
 }

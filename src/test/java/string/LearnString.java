@@ -8,7 +8,7 @@ public class LearnString {
 	public static void main(String[] args) {
 
 		// Define the pattern
-		String pattern = "(will)|(this)";
+		String pattern = "(will)|(this)|(I)";
 
 		// Compile the pattern
 		Pattern p = Pattern.compile(pattern);	
