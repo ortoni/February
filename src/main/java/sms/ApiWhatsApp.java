@@ -9,6 +9,7 @@ public class ApiWhatsApp extends ApiWhastsAppBuilder {
 		//		ReadNotepadFiles rf = new  ReadNotepadFiles();
 		//		List<String> msg = rf.notepad();
 		driver.get("https://api.whatsapp.com/send?phone=91" + phoneNumber + "&text=" + msg);
+		System.out.println(phoneNumber);
 
 		// To navigate to next contact
 		try {
@@ -23,17 +24,16 @@ public class ApiWhatsApp extends ApiWhastsAppBuilder {
 			waitAndClick(send);
 		} catch (Exception e1) {
 		}
-
 		// Disabled for performance 
-		/*			// If number is not available in WhatsApp!
-				try {
-					WebElement numberNotAvail = driver.findElementByXPath(
-							"//div[text()='Phone number shared via url is invalid.']/following::div[1]/div");
-					waitAndClick(numberNotAvail);
-				} catch (Exception e2) {
-				}*/
+		// If number is not available in WhatsApp!
+		/*try {
+			WebElement numberNotAvail = driver.findElementByXPath(
+					"//div[text()='Phone number shared via url is invalid.']/following::div[1]/div");
+			waitAndClick(numberNotAvail);
+		} catch (Exception e2) {
+		}*/
 		try {
-			WebElement sendButton = driver.findElementByXPath("//button[@class='_2lkdt']");
+			WebElement sendButton = driver.findElementByXPath("//span[@data-icon='send']/..");
 			waitAndClick(sendButton);
 		} catch (Exception e) {
 		}
