@@ -1,4 +1,4 @@
-package grid;
+package GridScript;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -19,11 +19,11 @@ public class JqueryUi {
 	public void frame() throws InterruptedException, MalformedURLException {
 		
 		DesiredCapabilities dc = new DesiredCapabilities();
-		dc.setBrowserName("MicrosoftEdge");
+		dc.setBrowserName("chrome");
 		dc.setPlatform(Platform.WINDOWS);
 		
 		RemoteWebDriver driver = new RemoteWebDriver(
-				new URL("http://192.168.54.12:4444/wd/hub"), dc);
+				new URL("http://localhost:4444/wd/hub"), dc);
 		
 		//Load the URL
 		driver.get("http://jqueryui.com/draggable/");

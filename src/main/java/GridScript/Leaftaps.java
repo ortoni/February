@@ -1,4 +1,4 @@
-package grid;
+package GridScript;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -15,24 +15,27 @@ public class Leaftaps {
 
 	@Test
 	public void login() throws InterruptedException, MalformedURLException {
-		
+
+		//new DesiredCapabilities();
 		DesiredCapabilities dc = new DesiredCapabilities();
-		dc.setBrowserName("firefox");
-		dc.setPlatform(Platform.WINDOWS);
-		
+
+		dc.setBrowserName("safari");
+
+		dc.setPlatform(Platform.MAC);
+
 		RemoteWebDriver driver = new RemoteWebDriver(
-				new URL("http://192.168.54.12:4444/wd/hub"), dc);
-		
-		
+				new URL("http://localhost:4444/wd/hub"), dc);
+
+
 		//Load the URL
 		driver.get("http://leaftaps.com/opentaps");
-		
+
 		// Set wait
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			
+
 		//Maximize
 		driver.manage().window().maximize();
-						
+
 		//Enter the UserName
 		WebElement user = driver.findElementById("username");
 		user.clear();
@@ -40,23 +43,16 @@ public class Leaftaps {
 
 		//Enter the Password
 		driver.findElementById("password").sendKeys("crmsfa");
-		
+
 		//Click on Login Button
 		driver.findElementByClassName("decorativeSubmit").click();
-		
-		// Find the title
-		String title = driver.getTitle();
-		if(title.equals("Opentaps Open Source ERP + CRM")) {
-			System.out.println("Title correct");
-		}else {
-			System.out.println("Title not correct");
-		}
-		
+		Thread.sleep(10000);
+
 		////Click on LogOut Button
 		driver.findElementByClassName("decorativeSubmit").click();
-		
-		
-	
-		
+
+
+
+
 	}
 }
