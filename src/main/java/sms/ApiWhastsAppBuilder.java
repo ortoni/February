@@ -18,7 +18,7 @@ public class ApiWhastsAppBuilder{
 	Actions act;
 	RemoteWebDriver driver;
 	WebDriverWait wait;
-	public String dataSheetName = "code";
+	public String dataSheetName = "Msg";
 
 
 	@BeforeClass
