@@ -4,13 +4,14 @@ public class CharCodeFormat {
 
 	public static void main(String[] args) {
 		// Input
-		String str = "abcD";
+		String str = "abce";
 		// Output  = bcde
-		String strIncremented=new String();
+		String output = "";
 		for(int i=0;i<str.length();i++){
-			strIncremented = strIncremented +(char)(str.charAt(i)+1);
+			
+			output+= (char)(str.charAt(i)+1);
 		}
-		System.out.println(strIncremented);
+		System.out.println(output);
 		
 		
 	}

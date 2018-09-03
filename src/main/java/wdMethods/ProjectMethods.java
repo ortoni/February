@@ -1,5 +1,7 @@
 package wdMethods;
 
+import java.io.IOException;
+
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
@@ -7,7 +9,9 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
 
+import basic.XL;
 import utils.DataInputProvider;
 
 public class ProjectMethods extends SeMethods{
@@ -26,7 +30,7 @@ public class ProjectMethods extends SeMethods{
 	}
 
 
-
+@Parameters({"browserName, url, un, pwd"})
 	@BeforeMethod
 	public void beforeMethod(){
 		test = startTestCase(testNodes);
@@ -51,8 +55,11 @@ public class ProjectMethods extends SeMethods{
 	}
 
 	@DataProvider(name="fetchData")
-	public  Object[][] getData(){
-		return DataInputProvider.getSheet(dataSheetName);		
+	public  Object[][] getData() throws IOException{
+		XL xl = new XL();
+		String[][] read = xl.read(dataSheetName);
+		return read;
+		//return DataInputProvider.getSheet(dataSheetName);		
 	}	
 
 }
