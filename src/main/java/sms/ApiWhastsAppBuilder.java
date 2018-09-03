@@ -24,7 +24,7 @@ public class ApiWhastsAppBuilder{
 	@BeforeClass
 	public void scan() {
 		String phoneNumber = "9962251412";
-		driver.get("https://api.whatsapp.com/send?phone=91" + phoneNumber + "&text=testmsg");
+		driver.get("https://api.whatsapp.com/send?phone=91" + phoneNumber + "&text=**HI**");
 		try {
 			Thread.sleep(100);
 			WebElement send = driver.findElementByLinkText("SEND");
@@ -50,7 +50,7 @@ public class ApiWhastsAppBuilder{
 		} catch (Exception e) {
 			System.out.println("Not Logged out, pls do manually log out in your application");
 		}
-		driver.quit();
+		//driver.quit();
 	}
 
 	@BeforeSuite

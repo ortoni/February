@@ -6,8 +6,6 @@ import org.testng.annotations.Test;
 public class ApiWhatsApp extends ApiWhastsAppBuilder {
 	@Test(dataProvider = "whatsAppApi")
 	public void postJob(String phoneNumber, String msg) throws InterruptedException {
-		//		ReadNotepadFiles rf = new  ReadNotepadFiles();
-		//		List<String> msg = rf.notepad();
 		driver.get("https://api.whatsapp.com/send?phone=91" + phoneNumber + "&text=" + msg);
 		System.out.println(phoneNumber);
 
