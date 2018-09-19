@@ -35,7 +35,7 @@ import utils.Reporter;
 
 public class SeMethods extends Reporter implements WdMethods{
 
-	public static RemoteWebDriver driver;
+	public RemoteWebDriver driver;
 	public String sUrl,sHubUrl,sHubPort;
 	public Properties prop;
 	

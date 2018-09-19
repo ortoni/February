@@ -10,14 +10,16 @@ public class DOB {
 	public static void main(String[] args) {
 		
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd mm yyyy");
-		String dob = "04 12 1994";
-		String currenDate = "29 08 2018";
+		String dob = "27 09 1992";
+		String currenDate = "17 09 2018";
 
 		try {
 		    Date date1 = simpleDateFormat.parse(dob);
 		    Date date2 = simpleDateFormat.parse(currenDate);
 		    long diff = date2.getTime() - date1.getTime();
-		    System.out.println ("Days: " + TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS));
+		    long days = TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
+		    System.out.println ("Days: " +days );
+		    System.out.println("Age: "+(days / 365));
 		} catch (ParseException e) {
 		    e.printStackTrace();
 		}

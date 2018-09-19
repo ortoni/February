@@ -19,6 +19,8 @@ public class Fibonacci {
 	            f1 = f2;
 	            f2 = t;
 	        }
+	        scr.close();
+	        
 	    }
 
 	}
