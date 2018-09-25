@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 public class SubFolderCounts {
 	@Test
 	public void main() throws IOException {
-		File dir = new File("K:\\Koushik\\Documents"); // current directory
+		File dir = new File("K:\\"); // current directory
 		availabelFiles(dir);
 	}
 

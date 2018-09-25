@@ -13,7 +13,7 @@ public class Armstrong {
 		while(input > 0) {
 			int rev = input % 10;
 			input = input / 10;	
-			arm = arm + (rev*rev*rev);
+			arm  += (rev*rev*rev);
 		}
 		if(arm == temp) {
 			System.out.println(temp+" is an Armstrong number :)");

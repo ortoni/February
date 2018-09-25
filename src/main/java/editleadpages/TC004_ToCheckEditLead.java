@@ -1,4 +1,4 @@
-package testcases;
+/*package testcases;
 
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -40,3 +40,4 @@ public class TC004_ToCheckEditLead extends ProjectMethods {
 
 
 }
+*/

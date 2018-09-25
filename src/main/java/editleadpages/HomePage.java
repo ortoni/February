@@ -23,7 +23,7 @@ public class HomePage extends ProjectMethods{
 
 	public MyHomePage clickcrmSfaLink() {
 		click(elecrmSfaLink);
-		return new MyHomePage(driver, test);		
+		return new MyHomePage();		
 	}
 
 
