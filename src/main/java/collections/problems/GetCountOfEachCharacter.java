@@ -1,10 +1,8 @@
 package collections.problems;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.TreeMap;
 
 public class GetCountOfEachCharacter {
 
@@ -34,7 +32,7 @@ public class GetCountOfEachCharacter {
 
 		// Class room Session.. [Psuedo Code] 
 		// In a given String, find the most number of repeating character
-		String company = "Amazon India Development Center";
+		String company = "welcome to automation";
 
 		char[] allCharacters= company.toCharArray();
 		Map<Character, Integer> compMap = new LinkedHashMap<Character, Integer>();

@@ -46,4 +46,16 @@ public class Indeed {
 		builder = new Actions(driver);
 		builder.sendKeys(ele, Keys.CONTROL).click(ele).perform();
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

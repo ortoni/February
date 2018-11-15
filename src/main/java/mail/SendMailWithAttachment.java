@@ -1,6 +1,5 @@
 package mail;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -21,6 +20,12 @@ public class SendMailWithAttachment {
 
 	public static void main(String[] args) throws AddressException, MessagingException, IOException {
 
+		triggerEmail();
+
+
+	}
+
+	private static void triggerEmail() throws MessagingException, AddressException, IOException {
 		Properties props = new Properties();
 		props.put("mail.smtp.host", "smtp.gmail.com");    
 		props.put("mail.smtp.socketFactory.port", "465");    
@@ -29,6 +34,7 @@ public class SendMailWithAttachment {
 		props.put("mail.smtp.auth", "true");    
 		props.put("mail.smtp.port", "465"); 
 		Session session = Session.getDefaultInstance(props,  new Authenticator() {  
+			@Override
 			protected PasswordAuthentication getPasswordAuthentication() {  
 				return new PasswordAuthentication("testleaf0150@gmail.com","leaf@123");  
 			}
@@ -53,8 +59,6 @@ public class SendMailWithAttachment {
 	
 		Transport.send(msg);
 		System.out.println("mail sent");
-
-
 	}
 
 }
