@@ -9,11 +9,11 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class MaximumOccurancesOfChars {
-	@DataProvider(name = "a")
+	@DataProvider(name = "a", indices =1)
 	public String[][] data() {
 		String[][] s = new String[2][1];
 		s[0][0] = "koushik";
-		s[1][0] = "preethy"; 
+		s[1][0] = "chatterjee"; 
 		return s;
 	}
 	// 1) How to find the maximum occurring character in given String?

@@ -3,7 +3,7 @@ package interviewPre;
 public class CapFirstWordLet {
 
 	public static void main(String[] args) {
-		String s = "capitialize first letter in a given sentence";
+		String s = "capitialize first letter of the words";
 		String[] split = s.split("\\s");
 		String x = "";
 		for (String splittedString : split) {

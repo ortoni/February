@@ -2,8 +2,10 @@ package interviewPre_a;
 
 public class PermutationOfString {
 	// using recursive
+	// asd as1d asfdasdfqw asfdwqe
+	
 	public static void main(String[] args) {
-		permutation("bc");
+		permutation("bca");
 	}
 	public static void permutation(String str) { 
 	    permutation("", str); 

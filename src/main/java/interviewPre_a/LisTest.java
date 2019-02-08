@@ -14,7 +14,9 @@ import org.testng.annotations.IDataProviderAnnotation;
 import org.testng.annotations.IFactoryAnnotation;
 import org.testng.annotations.ITestAnnotation;
 
-public class LisTest implements IAnnotationTransformer2,  IDataProviderListener{
+public class LisTest implements IAnnotationTransformer2, 
+IDataProviderListener, 
+IDataProviderAnnotation{
 	boolean flag =false;
 
 	@Override
@@ -25,34 +27,27 @@ public class LisTest implements IAnnotationTransformer2,  IDataProviderListener{
 		if(name.equals("maximumOccurancesoFCharacter")) {
 			flag = true;
 		}
-
 	}
 
 	@Override
 	public void transform(IConfigurationAnnotation annotation, 
 			Class testClass, Constructor testConstructor,
 			Method testMethod) {
-		
-
-	}
+		}
 
 	@Override
 	public void transform(IDataProviderAnnotation annotation, 
 			Method method) {
-//annotation.setIndices(indices);
 		System.out.println("data provider name: "+annotation.getName());
 	}
 
 	@Override
 	public void transform(IFactoryAnnotation annotation, Method method) {	
-
 		List<Integer> indices = annotation.getIndices();
-
 		System.out.println("lis");
 		if(flag==true) {
 			annotation.setIndices(indices);
 		}
-
 	}
 
 	@Override
@@ -60,8 +55,6 @@ public class LisTest implements IAnnotationTransformer2,  IDataProviderListener{
 			ITestContext iTestContext) {
 		List<Integer> indices = dataProviderMethod.getIndices();
 		System.out.println(indices);
-		
-		
 	}
 
 	@Override
@@ -69,6 +62,51 @@ public class LisTest implements IAnnotationTransformer2,  IDataProviderListener{
 			ITestContext iTestContext) {
 		
 	}
+
+	@Override
+	public String getName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setName(String name) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean isParallel() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void setParallel(boolean parallel) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Integer> getIndices() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setIndices(List<Integer> indices) {
+		System.out.println(flag);
+	if(flag == true) {
+		indices.add(0);
+	}
+		
+	}
+
+
+
+	
+
+
 
 
 
